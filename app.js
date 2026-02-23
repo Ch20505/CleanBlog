@@ -5,7 +5,7 @@ const app = express();
 app.get('/', (req, res) =>{
     
     const blog = {
-        id: 3,
+        id: 1,
         title: "Blog title",
         description: "Blog description"
     }
