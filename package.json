@@ -1,33 +1,29 @@
 {
-  "name": "cleanblog",
+  "name": "cleanblog2",
   "version": "1.0.0",
-  "description": "CleanBolg",
-  "keywords": [
-    "CleanBlog",
-    "Blog",
-    "app"
-  ],
-  "homepage": "https://github.com/Ch20505/CleanBlog#readme",
+  "description": "\"# CleanBlog2\"",
+  "homepage": "https://github.com/Ch20505/CleanBlog2#readme",
   "bugs": {
-    "url": "https://github.com/Ch20505/CleanBlog/issues"
+    "url": "https://github.com/Ch20505/CleanBlog2/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Ch20505/CleanBlog.git"
+    "url": "git+https://github.com/Ch20505/CleanBlog2.git"
   },
   "license": "ISC",
-  "author": "ch2",
+  "author": "",
   "type": "commonjs",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js"
-  },
-  "devDependencies": {
-    "nodemon": "^3.1.14",
-    "prettier": "3.8.1"
+    "start": "node app.js"
   },
   "dependencies": {
-    "express": "^5.2.1"
+    "ejs": "^4.0.1",
+    "express": "^5.2.1",
+    "nodemon": "^3.1.14"
+  },
+  "devDependencies": {
+    "prettier": "3.8.1"
   }
 }
