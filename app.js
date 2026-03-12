@@ -1,30 +1,47 @@
 const express = require('express');
+const mongoose = require('mongoose');
+const Post = require('./models/Post');
 const ejs = require('ejs');
-const path = require('path');
-
 const app = express();
 
-//TEMPLATE ENGİNE
-app.set("view engine", "ejs");
+// MongoDB bağlantısı
+mongoose.connect('mongodb://localhost/pcat-test-db',{
 
+});
+ 
 
-// MiddlewareS
+// Template Engine
+app.set('view engine', 'ejs');
+
+// Middleware
 app.use(express.static('public'));
+app.use(express.urlencoded({extended:true}));
+app.use(express.json());
 
-//ROUTES
-app.get('/', (req, res) => {
-    //res.sendFile(path.resolve(__dirname, 'temp/index.html'));
-    res.render('index');
+// ROUTES
+
+app.get('/', async (req,res)=>{
+  const posts = await Post.find({});
+  res.render('index',{
+    posts
+    });
 });
-app.get('/about', (req, res) => { 
-    res.render('about');
+
+app.get('/about',(req,res)=>{
+  res.render('about');
 });
-app.get('/add', (req, res) => {
-    res.render('add');
+
+app.get('/add',(req,res)=>{
+  res.render('add');
+});
+
+app.post('/posts', async (req,res)=>{
+  await Post.create(req.body);
+    res.redirect('/');
 });
 
 const port = 3000;
 
-app.listen(port, () => {
-    console.log(`Sunucu ${port} portunda başlatıldı`);
-})
+app.listen(port, ()=>{
+  console.log(`Server ${port} portunda çalışıyor`);
+});
