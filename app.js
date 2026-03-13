@@ -27,6 +27,15 @@ app.get('/', async (req,res)=>{
     });
 });
 
+app.get('/posts/:id', async (req, res) => {
+    //console.log(req.params.id);
+    //res.render('about');
+    const post = await Post.findById(req.params.id) // id'ye göre veritabanından fotoğrafı bul
+    res.render('post', {  // post.ejs dosyasına fotoğraf verisini gönder
+        post  // post değişkeni, post.ejs dosyasında kullanılabilir
+    })
+});
+
 app.get('/about',(req,res)=>{
   res.render('about');
 });
